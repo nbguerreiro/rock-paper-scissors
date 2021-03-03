@@ -20,51 +20,47 @@
         console.log("player: " + player);
         console.log("comp: " + comp);
 
+        // return 0 if comp wins
+        // 1 if player wins
+        // 2 if draw
+        // 3 if error
+
         if ( player == comp){
           console.log("Draw!");
-          return "Draw!"
+          return 2;
         } else if (player == "scissors"){
           switch(comp){
             case "paper":
              console.log("You win! Scissors beats Paper");
-             return "You win! Scissors beats Paper";
+             return 1;
              break; 
             case "rock":
              console.log("You lose! Rock beats Scissors");
-             return "You lose! Rock beats Scissors";
-             break; 
-            default:
-             console.log("What?!");
-             return "What?!";
+             return 0;
              }
           } else if (player == "paper"){
           switch(comp){
             case "scissors":
              console.log("You lose! Scissors beats Paper");
-             return "You lose! Scissors beats Paper";
+             return 0;
              break; 
             case "rock":
              console.log("You win! Rock beats Scissors");
-             return "You win! Rock beats Scissors";
-             break; 
-            default:
-             console.log("What?!");
-             return "What?!";
+             return 1;
           }
         } else if (player == "rock"){
           switch(comp){
             case "scissors":
              console.log("You win! Rock beats Scissors");
-             return "You win! Rock beats Scissors";
+             return 1;
              break; 
             case "paper":
              console.log("You lose! Paper beats Rock");
-             return "You win! Paper beats Rock";
-             break; 
-            default:
-             console.log("What?!");
-             return "What?!";
+             return 1;
           }
+        } else {
+            console.log("What?!");
+            return 3;
         }
       }
 
@@ -72,10 +68,25 @@
         let comp = 0;
         let human = 0;
 
-        for(let j=0; j<1; j++ ){
+        for(let j=0; j<6; j++ ){
             let p = prompt("Rock, Paper, or Scissors?"); 
-            playRound(p, computerPlay());
+            let g = playRound(p, computerPlay());
+            switch(g){
+              case 0:
+                comp++;
+                break;
+              case 1:
+                human++;
+                break;
+              case 2:
+                break;
+              default:
+                console.log("I didn't understand that...");
+                j--;
+            }
         }
+
+        console.log("Results: Human: " + human + " Computer: " + comp + ".");
       }
 
       game();
