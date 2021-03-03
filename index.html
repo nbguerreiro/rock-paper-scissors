@@ -8,7 +8,8 @@
     <script charset="utf-8">
       function computerPlay(){
         let opts=["Rock", "Paper", "Scissors"];
-        let rand = Math.floor(Math.random() * 2);
+        let rand = Math.floor(Math.random() * 3);
+        // console.log("rand: " + rand);
         return opts[rand];
       } 
 
@@ -17,24 +18,61 @@
         let comp = computerSelection.toLowerCase();
         
         if ( player == comp){
-          console.log("Draw!");
+          // console.log("Draw!");
           return "Draw!"
-        } else if (player == "scissors" && comp == "paper"){
-          console.log("You win! Scissors beats Paper");
-            return "You win! Scissors beats Paper";
-        } else if (player == "paper" && comp == "rock"){
-          console.log("You win! Paper beats Rock");
-            return "You win! Paper beats Rock";
-        } else if (player == "rock" && comp == "scissors"){
-          console.log("You win! Rock beats Scissors");
-            return "You win! Rock beats Scissors";
+        } else if (player == "scissors"){
+          switch(comp){
+            case "paper":
+             // console.log("You win! Scissors beats Paper");
+             return "You win! Scissors beats Paper";
+             break; 
+            case "rock":
+             // console.log("You lose! Rock beats Scissors");
+             return "You lose! Rock beats Scissors";
+             break; 
+            default:
+             // console.log("What?!");
+             return "What?!";
+             }
+          } else if (player == "paper"){
+          switch(comp){
+            case "scissors":
+             // console.log("You lose! Scissors beats Paper");
+             return "You lose! Scissors beats Paper";
+             break; 
+            case "rock":
+             // console.log("You win! Rock beats Scissors");
+             return "You win! Rock beats Scissors";
+             break; 
+            default:
+             // console.log("What?!");
+             return "What?!";
+          }
+        } else if (player == "rock"){
+          switch(comp){
+            case "scissors":
+             // console.log("You win! Rock beats Scissors");
+             return "You win! Rock beats Scissors";
+             break; 
+            case "paper":
+             // console.log("You lose! Paper beats Rock");
+             return "You win! Paper beats Rock";
+             break; 
+            default:
+             // console.log("What?!");
+             return "What?!";
+          }
         }
       }
 
+
       // playRound("Rock", "rock");
-      playRound("scissors", "paper");
-      playRound("paper", "rock");
-      playRound("rock", "scissors");
+      // playRound("scissors", "paper");
+      playRound("scissors", computerPlay());
+      // playRound("paper", "rock");
+      playRound("paper", computerPlay());
+      // playRound("rock", "scissors");
+      playRound("rock", computerPlay());
     </script>
   </head>
   <body>
