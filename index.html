@@ -15,8 +15,26 @@
       function playRound(playerSelection, computerSelection){
         let player = playerSelection.toLowerCase();
         let comp = computerSelection.toLowerCase();
-      
+        
+        if ( player == comp){
+          console.log("Draw!");
+          return "Draw!"
+        } else if (player == "scissors" && comp == "paper"){
+          console.log("You win! Scissors beats Paper");
+            return "You win! Scissors beats Paper";
+        } else if (player == "paper" && comp == "rock"){
+          console.log("You win! Paper beats Rock");
+            return "You win! Paper beats Rock";
+        } else if (player == "rock" && comp == "scissors"){
+          console.log("You win! Rock beats Scissors");
+            return "You win! Rock beats Scissors";
+        }
       }
+
+      // playRound("Rock", "rock");
+      playRound("scissors", "paper");
+      playRound("paper", "rock");
+      playRound("rock", "scissors");
     </script>
   </head>
   <body>
