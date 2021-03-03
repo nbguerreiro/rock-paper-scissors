@@ -16,66 +16,79 @@
       function playRound(playerSelection, computerSelection){
         let player = playerSelection.toLowerCase();
         let comp = computerSelection.toLowerCase();
-        
+
+        console.log("player: " + player);
+        console.log("comp: " + comp);
+
         if ( player == comp){
-          // console.log("Draw!");
+          console.log("Draw!");
           return "Draw!"
         } else if (player == "scissors"){
           switch(comp){
             case "paper":
-             // console.log("You win! Scissors beats Paper");
+             console.log("You win! Scissors beats Paper");
              return "You win! Scissors beats Paper";
              break; 
             case "rock":
-             // console.log("You lose! Rock beats Scissors");
+             console.log("You lose! Rock beats Scissors");
              return "You lose! Rock beats Scissors";
              break; 
             default:
-             // console.log("What?!");
+             console.log("What?!");
              return "What?!";
              }
           } else if (player == "paper"){
           switch(comp){
             case "scissors":
-             // console.log("You lose! Scissors beats Paper");
+             console.log("You lose! Scissors beats Paper");
              return "You lose! Scissors beats Paper";
              break; 
             case "rock":
-             // console.log("You win! Rock beats Scissors");
+             console.log("You win! Rock beats Scissors");
              return "You win! Rock beats Scissors";
              break; 
             default:
-             // console.log("What?!");
+             console.log("What?!");
              return "What?!";
           }
         } else if (player == "rock"){
           switch(comp){
             case "scissors":
-             // console.log("You win! Rock beats Scissors");
+             console.log("You win! Rock beats Scissors");
              return "You win! Rock beats Scissors";
              break; 
             case "paper":
-             // console.log("You lose! Paper beats Rock");
+             console.log("You lose! Paper beats Rock");
              return "You win! Paper beats Rock";
              break; 
             default:
-             // console.log("What?!");
+             console.log("What?!");
              return "What?!";
           }
         }
       }
 
+      function game(){
+        let comp = 0;
+        let human = 0;
 
-      // playRound("Rock", "rock");
-      // playRound("scissors", "paper");
-      playRound("scissors", computerPlay());
-      // playRound("paper", "rock");
-      playRound("paper", computerPlay());
-      // playRound("rock", "scissors");
-      playRound("rock", computerPlay());
+        for(let j=0; j<1; j++ ){
+            let p = prompt("Rock, Paper, or Scissors?"); 
+            playRound(p, computerPlay());
+        }
+      }
+
+      game();
+
+// playRound("Rock", "rock");
+// playRound("scissors", "paper");
+// playRound("scissors", computerPlay());
+// playRound("paper", "rock");
+// playRound("paper", computerPlay());
+// playRound("rock", "scissors");
+// playRound("rock", computerPlay());
     </script>
   </head>
   <body>
-    body
   </body>
 </html>
